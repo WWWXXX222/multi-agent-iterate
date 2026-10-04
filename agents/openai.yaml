@@ -1,4 +1,4 @@
 interface:
   display_name: "Multi-Agent Iterate"
-  short_description: "多 agent 独立提案、证据评审与自主修订，按验收条件收敛"
-  default_prompt: "使用 $multi-agent-iterate，在给定目标和约束内自主迭代这份方案，最多 3 轮，交付推荐稿、验证证据和关键待决事项。"
+  short_description: "多 agent 主动挑战结构、给出具体改法，按文档或代码验收自主迭代"
+  default_prompt: "使用 $multi-agent-iterate，在给定约束内迭代这份方案，先判断是否需要结构挑战，最多 3 轮，交付推荐稿、具体改动依据、验证证据和关键待决项。"
