@@ -40,6 +40,15 @@
 
 重要反馈必须包含 **发现 → 对目标的影响 → 具体改法 → 验证办法**。主控读取实际产物，比较收益与代价，决定哪些意见采纳、哪些拒绝、哪些仍待核实。验收结论对应最终版本；整合或修改后，受影响的部分需要重新验证。
 
+## 走偏时怎样恢复，纠正后怎样复用
+
+- **计划也包含验证**：复杂任务提前明确实施步骤、验证方法和所需环境；简单修改直接处理。
+- **前提失效就重规划**：暂停依赖错误前提的步骤，查证后更新计划和相关 agent 简报，保留有效工作；轮次与预算继续累计。
+- **主动完成修复**：在授权范围内自行查来源、日志或复现，修复后重新验证；方案简化需保留原有目标与约束。
+- **经验用于下一次执行**：把可复用纠正记成“适用条件、证据、下次动作、验证方法”，下次相关任务读取，合并重复项、修正失效经验。
+
+这些做法吸收了 Boris Cherny 的公开分享与 Claude Code 官方文档，并针对文档和代码任务做了适配。复用已有项目记录即可，不强制新建 `tasks/todo.md`、`tasks/lessons.md` 或增加逐步确认。细节见 [重规划与经验复用](references/planning-and-learning.md)。
+
 ## 文档和 coding 怎样分别验收
 
 | 任务 | 重点检查 |
@@ -51,6 +60,8 @@
 文档开始前会从你的需求、明确反馈和认可样例提取简短的质量约定。例如 OKR 要区分 O 的方向与 KR 的可验收结果；缺少数值时先写清指标、单位和测量方式，目标值标待定，避免强行编出百分比。已有信息能解决的问题自行处理，关键取舍集中交给你。
 
 文稿验收不能保证经营结果，测试通过也需要与真实需求对照。未知事实和外部验证缺口会在交付时注明。具体检查见 [任务验收](references/task-acceptance.md)。
+
+文档迭代保留可辨认的版本、相邻差异与恢复入口；无改动的一轮只记复核。复用现有版本方式，不必搭建新系统。详见 [文档版本与回退](references/task-acceptance.md#文档版本与回退)。
 
 ## 默认运行方式
 
@@ -122,7 +133,8 @@ git clone https://github.com/WWWXXX222/multi-agent-iterate.git ~/.codex/skills/m
 | [结构挑战](references/structure-challenge.md) | 从原始问题独立拆解，提出具体改法并比较价值 |
 | [任务验收](references/task-acceptance.md) | 文档、coding 和混合任务的验收方式 |
 | [验证与收敛](references/verification.md) | 按任务选择证据及结束方式 |
-| [方法来源](references/provenance.md) | pstack、视频来源及本 skill 的适配说明 |
+| [重规划与经验复用](references/planning-and-learning.md) | 前提失效时恢复工作，将纠正用于后续执行 |
+| [方法来源](references/provenance.md) | pstack、视频、Boris 原帖与官方文档的来源及适配说明 |
 
 实际资料和运行结果保存在任务工作区。安装 skill 不会自动启动任务、后台定时运行、对外发布或写入业务系统；这些动作取决于具体任务的授权。
 
@@ -134,6 +146,8 @@ git clone https://github.com/WWWXXX222/multi-agent-iterate.git ~/.codex/skills/m
 
 ## 方法来源
 
-借鉴 [pstack](https://github.com/backnotprop/pstack) 的独立候选、分工、质疑与验证方法，以及[这段视频](https://www.youtube.com/watch?v=NjoZoUm85x0)关于自主验证和减少重复人工纠正的思路。具体来源、时间点和适配差异记录在 [provenance.md](references/provenance.md)。
+借鉴 [pstack](https://github.com/backnotprop/pstack) 的独立候选、分工、质疑与验证方法，以及[这段视频](https://www.youtube.com/watch?v=NjoZoUm85x0)关于自主验证和减少重复人工纠正的思路。另参考 [Boris Cherny 2026-01-31 的团队经验分享](https://x.com/bcherny/status/2017742741636321619)和 [Claude Code 官方最佳实践](https://code.claude.com/docs/en/best-practices)。具体来源、核验限制和适配差异记录在 [provenance.md](references/provenance.md)。
+
+网上流传的“Workflow Orchestration”完整模板可见于社区 Gist；本次未证实它是 Boris 本人发布的配置文件，不将其整体当作官方原文，也不承诺宣传中的效率提升倍数。
 
 本 skill 独立编写，无需安装 pstack，也不绑定某个模型或业务系统。公司 OKR 是一个应用场景；有专门领域规则时，可结合对应 skill 使用，并避免重复启动两套迭代流程。
